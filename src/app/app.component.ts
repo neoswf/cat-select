@@ -12,7 +12,6 @@ export class AppComponent {
   title = 'Cat Select';
   imgSrc = '';
   loadingText = "";
-  catListUpdated = false;
 
   constructor(private http: HttpClient) {}
 
@@ -26,7 +25,6 @@ export class AppComponent {
     this.http.get('https://api.thecatapi.com/v1/images/search?breed_ids='+breedId).subscribe(res => {
       this.imgSrc = res[0].url;
       this.loadingText = "";
-      this.catListUpdated = true;
       this.child.callDog();
     });
   }

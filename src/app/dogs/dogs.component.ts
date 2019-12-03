@@ -25,7 +25,6 @@ export class DogsComponent implements OnInit {
     this.http.get('https://dog.ceo/api/breeds/image/random').subscribe(res => {
       this.imgSrc = res['message'];
       this.loadingText = "";
-      this.catListHaveChanged = false;
     });
   }
 
