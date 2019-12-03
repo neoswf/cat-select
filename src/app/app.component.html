@@ -330,10 +330,26 @@
 
   <fieldset class="card-container">
     <legend>Component 1 - Select and post</legend>
-    <p>
-      <select>
-        <option value="">Choose me!!!!</option>
+    <p style="text-align: center; margin-bottom: 1em;">
+      <select (change)="onChange($event.target.value)">
+        <option value="reset_list">Choose a Cat!</option>
+        <option value="abys">Abys</option>
+        <option value="acur">Acur</option>
+        <option value="beng">Beng</option>
+        <option value="chau">Chau</option>
+        <option value="ebur">Ebur</option>
+        <option value="munc">Munc</option>
+        <option value="mcoo">Mcoo</option>
+        <option value="raga">Raga</option>
+        <option value="srex">Srex</option>
+        <option value="snow">Snow</option>
+        <option value="tang">Tang</option>
+        <option value="tvan">Tvan</option>
       </select>
+      <span>{{loadingText}}</span>
+    </p>
+    <p style="text-align: center;">
+      <img src="{{imgSrc}}" alt="" style="max-width:50%" />
     </p>
   </fieldset>
 
