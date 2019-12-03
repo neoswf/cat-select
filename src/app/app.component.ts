@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DogsComponent } from "./dogs/dogs.component";
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,11 @@ export class AppComponent {
   title = 'Cat Select';
   imgSrc = '';
   loadingText = "";
+  catListUpdated = false;
 
   constructor(private http: HttpClient) {}
+
+  @ViewChild(DogsComponent) child:DogsComponent;
 
   onChange(breedId) {
     console.log(breedId);
@@ -21,8 +25,9 @@ export class AppComponent {
     // call
     this.http.get('https://api.thecatapi.com/v1/images/search?breed_ids='+breedId).subscribe(res => {
       this.imgSrc = res[0].url;
-      console.log(this.imgSrc);
       this.loadingText = "";
+      this.catListUpdated = true;
+      this.child.callDog();
     });
   }
 

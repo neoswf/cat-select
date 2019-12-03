@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { DogsComponent } from './dogs/dogs.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DogsComponent
   ],
   imports: [
     BrowserModule,
